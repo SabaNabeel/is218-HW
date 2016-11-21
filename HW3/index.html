@@ -1,0 +1,99 @@
+<?php 
+$title = 'Array to Dynamic Table';
+$tmps = array
+(
+    'english' => Array
+    (
+      'term1' => 
+        Array('circ' => Array
+        (
+            'Unit1' => Array('0' => 'file.zip'),
+            'Unit2' => Array('0' => 'file.zip'),
+            'Unit3' => Array('0' => 'file.zip'),
+            'Unit4' => Array('0' => 'file.zip'),
+        ),
+        'type' => Array
+        (
+            'Unit1' => Array('0' => 'file.zip'),
+            'Unit2' => Array('0' => 'file.zip'),
+            'Unit3' => Array('0' => 'file.zip'),
+            'Unit4' => Array('0' => 'file.zip'),
+        )
+    ),
+    'term2' => Array
+    (
+        'circ' => Array
+        (
+            'Unit1' => Array('0' => 'file.zip'),
+            'Unit2' => Array('0' => 'file.zip'),
+            'Unit3' => Array('0' => 'file.zip'),
+            'Unit4' => Array('0' => 'file.zip'),
+        ),
+        'type' => Array
+        (
+            'Unit1' => Array('0' => 'file.zip'),
+            'Unit2' => Array('0' => 'file.zip'),
+            'Unit3' => Array('0' => 'file.zip'),
+            'Unit4' => Array('0' => 'file.zip'),
+        ),
+    ),
+),
+);
+
+
+/ BEWARE - DO NOT HAVE ANYTHING AFTER TMP;, NOT EVEN A SPACE
+echo $html = <<< TMP
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="EN" xml:lang="EN">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en"/>
+<style type="text/css">
+  table    {margin:-1em 0 2em 4.2em;}
+  table td,
+  table th {padding:0 1em; border:solid 1px #333; text-align:center;}
+</style>
+<title> $title </title>
+</head>
+<body>
+TMP;
+// BEWARE - DO NOT HAVE ANYTHING AFTER TMP;, NOT EVEN A SPACE
+
+echo '<h1>' .$title .'</h1>';
+// BEWARE - DO NOT HAVE ANYTHING AFTER TMP, NOT EVEN A SPACE
+echo $table = <<< TMP
+    <table>
+        <tr>
+        <th> Language     </th>
+        <th> heading 1     </th>
+        <th> heading 2     </th>
+        <th> content         </th>
+        <th> item             </th>
+        <th> file             </th>
+    </tr>
+TMP;
+// BEWARE - DO NOT HAVE ANYTHING AFTER TMP;, NOT EVEN A SPACE
+
+foreach($tmps as $item1 => $name1):
+    foreach($name1 as $item2 => $name2):
+        foreach($name2 as $item3 => $name3):
+            foreach($name2 as $item4 => $name4):
+                foreach($name4 as $item5 => $name5):
+                    foreach($name5 as $item6 => $name6):
+                        echo '<tr>';
+                            echo '<td>' .$item1 .'</td>'; // english
+                            echo '<td>' .$item2 .'</td>'; // term1, 
+                            echo '<td>' .$item2 .'</td>'; // term1, 
+                          echo '<td>' .$item5 .'</td>'; // unit1
+                          echo '<td>' .$item6 .'</td>'; // 0
+                          echo '<td>' .$name6 .'</td>'; // file.zip
+                      echo '</tr>';
+                    endforeach;        
+                endforeach;        
+            endforeach;        
+        endforeach;        
+    endforeach;        
+endforeach;
+
+echo '</table></body></html>';
